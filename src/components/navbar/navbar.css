@@ -1,0 +1,17 @@
+.nav-link {
+  position: relative;
+}
+.nav-link::before {
+  position: absolute;
+  bottom: -2px;
+  width: 0%;
+  background-color: rgba(0, 0, 0, 0.759);
+  height: 3px;
+  content: "";
+  transition: 0.3s all ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover:not(:last-child):before {
+  width: 72%;
+}
