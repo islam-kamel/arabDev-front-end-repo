@@ -30,7 +30,9 @@ const NavigationBar = () => {
             navbarScroll
           >
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
+            <Nav.Link as={Link} to="/login" className="hover:text-[#3b49df]">
+              تسجيل دخول
+            </Nav.Link>
 
             <Nav.Link as={Link} to="/register" className="w-[90%]" href="#">
               <CreateButton text="انشاء حساب" />

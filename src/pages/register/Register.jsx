@@ -7,9 +7,9 @@ const Register = () => {
   return (
     <Container className="py-7">
       <form className=" register-form bg-white w-full  max-w-[700px] min-h-[600px]  py-16 justify-center mx-auto flex flex-col  rounded-lg px-4 ">
-        <h2 className="text-center font-bold mb-3 ">
+        <h1 className="text-center text-3xl	 font-bold mb-3 ">
           مرحبا بكم في مجتمع البرمجه العربي
-        </h2>
+        </h1>
         <SignIn
           operation="Sign up"
           img="https://freesvg.org/img/1534129544.png"
