@@ -16,7 +16,7 @@ const Login = () => {
         <SignIn
           operation="Sign up"
           img="https://pngimg.com/uploads/github/github_PNG83.png"
-          website="Githup"
+          website="Github"
         />
         <form>
           <label>البريد الالكتروني </label>
@@ -30,7 +30,6 @@ const Login = () => {
           <a href="#" className="forgot">
             هل نسيت كلمه المرور
           </a>
-          {/* < type="submit" value="Login" > */}
           <CreateButton
             type="submit"
             tailwindStyles="mt-14 px-11 block mx-auto"
