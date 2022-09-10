@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import CreateButton from "../../components/Buttons/createButton/CreateButton";
-import SignIn from "../../components/Buttons/sign-in/SignIn";
+import CreateButton from "components/Buttons/createButton/CreateButton";
+import SignIn from "components/Buttons/sign-in/SignIn";
 import "./Login.css";
 const Login = () => {
   return (
