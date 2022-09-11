@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .login-div {
-  direction: rtl;
-  min-height: 600px;
-  box-shadow: 5px 5px 10px 1px rgb(0, 0, 0, 10%);
+    direction: rtl;
+    min-height: 600px;
+    box-shadow: 5px 5px 10px 1px rgb(0, 0, 0, 10%);
 }
 
 @media (max-width: 480px) {
-  .login-div {
-    padding: 75px 25px;
-  }
+    .login-div {
+        padding: 75px 25px;
+    }
 }
 /* 
 .login-div h1 {
@@ -20,50 +20,50 @@
 } */
 
 .login-div form label {
-  display: block;
-  margin-bottom: 14px;
+    display: block;
+    margin-bottom: 14px;
 }
 
 .login-div form div:hover {
-  border-bottom-color: var(--secondary-color);
+    border-bottom-color: var(--secondary-color);
 }
 
 .login-div form div:first-of-type {
-  margin-bottom: 35px;
+    margin-bottom: 35px;
 }
 
 .login-div form div:hover i {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .login-div form div input {
-  width: 100%;
-  padding: 7px 10px;
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.386);
+    width: 100%;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.386);
 }
 
 .login-div form div input::placeholder {
-  opacity: 1;
-  color: var(--gray-color);
-  font-size: 12px;
+    opacity: 1;
+    color: var(--gray-color);
+    font-size: 12px;
 }
 
 .login-div a {
-  color: var(--gray-color);
-  text-decoration: none;
-  font-size: 13px;
-  display: block;
+    color: var(--gray-color);
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
 }
 
 .login-div a:hover {
-  color: var(--button-color);
+    color: var(--button-color);
 }
 
 .login-div form {
-  margin-top: 55px;
+    margin-top: 55px;
 }
 .login-div form .forgot {
-  margin-top: 15px;
-  float: right;
+    margin-top: 15px;
+    float: right;
 }
