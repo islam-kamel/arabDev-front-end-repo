@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Register from "./pages/register/Register";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavigationBar from "./components/navbar/Navbar.jsx";
 import Login from "./pages/login/Login.jsx";
+import axios from "axios";
 function App() {
-  const [number, setNumber] = useState(1);
+  // console.log()
   useEffect(() => {
-    console.log(number);
-  });
+    axios.get("http://localhost/api/v1/feed").then((e) => console.log(e));
+  }, []);
   return (
     <Router>
       <NavigationBar />

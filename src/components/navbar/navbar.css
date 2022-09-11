@@ -1,6 +1,5 @@
 .nav-link {
   position: relative;
-  width: max-content;
 }
 .nav-link::before {
   position: absolute;

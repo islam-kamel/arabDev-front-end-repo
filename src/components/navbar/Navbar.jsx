@@ -34,7 +34,12 @@ const NavigationBar = () => {
               تسجيل دخول
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/register" className="w-[90%]" href="#">
+            <Nav.Link
+              as={Link}
+              to="/register"
+              style={{ width: "90%" }}
+              href="#"
+            >
               <CreateButton text="انشاء حساب" />
             </Nav.Link>
           </Nav>
