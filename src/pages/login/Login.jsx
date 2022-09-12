@@ -1,15 +1,17 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import CreateButton from '../../components/Buttons/createButton/CreateButton'
+import CreateButton from '../../components/Buttons/createButton/CreateButton.jsx'
 import SignIn from '../../components/Buttons/sign-in/SignIn'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import './Login.css'
+
 const schema = yup.object().shape({
     email: yup.string().email().required('يجب كتابه البريد الاكتروني'),
     password: yup.string().required('يجب كتابه رمز المرور  '),
 })
+
 const Login = () => {
     const {
         register,
@@ -46,9 +48,9 @@ const Login = () => {
                     <label>البريد الالكتروني </label>
                     <div>
                         <input
-                            {...register('email')}
                             type="email"
                             name="email"
+                            {...register('email')}
                         />
                         <p className="text-red-500 mt-3">
                             {errors.email?.message}
@@ -57,14 +59,15 @@ const Login = () => {
                     <label>Password</label>
                     <div>
                         <input
-                            {...register('password')}
                             name="password"
                             type="password"
+                            {...register('pa☻ssword')}
                         />
                         <p className="text-red-500 mt-3">
                             {errors.password?.message}
                         </p>
                     </div>
+
                     <a href="#" className="forgot">
                         هل نسيت كلمه المرور
                     </a>
