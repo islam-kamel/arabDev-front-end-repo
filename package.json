@@ -20,10 +20,13 @@
         "react-bootstrap": "^2.5.0",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.35.0",
+        "react-icons": "^4.4.0",
+        "react-markdown": "^8.0.3",
         "react-router-dom": "^6.3.0",
         "react-scripts": "5.0.1",
         "rehype-highlight": "^5.0.2",
         "rehype-slug": "^5.0.1",
+        "remark-slug": "^7.0.1",
         "remark-toc": "^8.0.1",
         "web-vitals": "^2.1.4",
         "yup": "^0.32.11"
