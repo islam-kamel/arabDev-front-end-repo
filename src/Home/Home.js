@@ -1,7 +1,12 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faGithub,
+    faTwitter,
+    faInstagramSquare,
+    faTwitch,
+} from '@fortawesome/free-brands-svg-icons'
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro' ;
 import './Sidebar.css'
 const Home = () => {
     return (
@@ -222,11 +227,10 @@ const Home = () => {
                                 </li>
                             </ul>
                             <div>
-                                {/* <FontAwesomeIcon icon="fa-brands fa-facebook" /> */}
-                                <i className="fa-brands fa-twitter"></i>
-                                <i className="fa-brands fa-github"></i>
-                                <i className="fa-brands fa-square-instagram"></i>
-                                <i className="fa-brands fa-twitch"></i>
+                                <FontAwesomeIcon icon={faGithub} />
+                                <FontAwesomeIcon icon={faTwitter} />
+                                <FontAwesomeIcon icon={faInstagramSquare} />
+                                <FontAwesomeIcon icon={faTwitch} />
                             </div>
                             <hr />
                             <div className="dropdown pb-5">
