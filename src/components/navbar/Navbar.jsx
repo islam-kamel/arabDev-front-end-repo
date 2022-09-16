@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 import './navbar.css'
-import CreateButton from '../Buttons/createButton/CreateButton.jsx'
+import CreateButton from 'components/Buttons/createButton/CreateButton.jsx'
 
 const NavigationBar = () => {
     return (
