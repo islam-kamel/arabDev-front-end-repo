@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavigationBar from 'components/navbar/Navbar.jsx'
 import Login from 'pages/login/Login.jsx'
 import Home from './Home/Home.js'
-import { CreatePost } from 'pages/create-post'
+import CreatePost from 'pages/create_post/CreatePost'
 
 function App() {
     return (
