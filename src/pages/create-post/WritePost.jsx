@@ -25,6 +25,17 @@ const WritePost = ({
 
     return (
         <>
+            <label
+                className="block mb-2 text-sm font-medium text-gray-900 "
+                htmlFor="file_input"
+            >
+                اختر صوره المنشور
+            </label>
+            <input
+                className="block   w-full text-sm   rounded-lg border border-gray-300 cursor-pointer text-white focus:outline-none bg-gray-700 p-1 "
+                id="file_input"
+                type="file"
+            />
             <input
                 onChange={(e) => {
                     setPostTitle(e.target.value)
@@ -79,8 +90,7 @@ const WritePost = ({
                     className="w-[200px] p-2 tags-input  "
                 />
             </div>
-            {/* مفتوح اصلا 
-انا عامل شير للبورت المفروض تدخل عادي منغير حاجه  */}
+
             <textarea
                 defaultValue={markdown}
                 className="h-[500px] w-full mt-10 rounded-lg border-[1.5px] border-gray-300 shadow-md px-4 py-7 text-[20px]"
