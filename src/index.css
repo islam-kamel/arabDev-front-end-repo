@@ -14,3 +14,19 @@ body {
     background-color: #f0f0f0 !important;
     font-weight: 500 !important;
 }
+
+pre {
+    background-color: #eeeeee !important;
+}
+
+path {
+    pointer-events: none;
+}
+
+.tags-input {
+    border: none;
+}
+.tags-input:focus-visible {
+    outline: none;
+    border-bottom: 1px solid;
+}
