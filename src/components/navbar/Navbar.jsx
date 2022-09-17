@@ -11,8 +11,10 @@ import CreateButton from 'components/Buttons/createButton/CreateButton.jsx'
 const NavigationBar = () => {
     return (
         <Navbar className="shadow-md sticky-top bg-white" expand="md">
-            <Container fluid>
-                <Navbar.Brand href="#">Logo</Navbar.Brand>{' '}
+            <Container>
+                <Navbar.Brand className="logo" href="#">
+                    ArabiansDevWorld
+                </Navbar.Brand>{' '}
                 <Navbar.Toggle
                     className="shadow-none"
                     aria-controls="navbarScroll"
