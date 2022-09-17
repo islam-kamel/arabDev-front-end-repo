@@ -6,10 +6,12 @@ import NavigationBar from './components/navbar/Navbar.jsx'
 import Login from './pages/login/Login.jsx'
 import CreatePost from './pages/create-post/CreatePost'
 import Home from './Home/Home.js'
-// import Addpost from './pages/Addposts/Addpost'
+ import Addpost from './pages/Addposts/Addpost'
+import Profile from './pages/Profile/Profile'
+ 
 export const savedPostsContext = createContext()
 
-function App() {
+ function App() {
     const [isRenderd, setIsRendered] = useState(false)
 
     const [savedPosts, setSavedPosts] = useState([])
@@ -52,6 +54,8 @@ function App() {
                 />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/profile" element={<Profile />} />
+ 
                 <Route />
             </Routes>
         </Router>
