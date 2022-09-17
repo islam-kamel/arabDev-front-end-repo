@@ -6,7 +6,7 @@ import NavigationBar from './components/navbar/Navbar.jsx'
 import Login from './pages/login/Login.jsx'
 import CreatePost from './pages/create-post/CreatePost'
 import Home from './Home/Home.js'
-
+import Addpost from './pages/Addposts/Addpost'
 function App() {
     return (
         <Router>
@@ -16,6 +16,7 @@ function App() {
                 <Route path="new" element={<CreatePost />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/addpost" element={<Addpost />} />
                 <Route />
             </Routes>
         </Router>
