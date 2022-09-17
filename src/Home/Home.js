@@ -6,11 +6,11 @@ import {
     faInstagramSquare,
     faTwitch,
 } from '@fortawesome/free-brands-svg-icons'
-
+import Addpost from '../pages/Addposts/Addpost'
 import './Sidebar.css'
 const Home = () => {
     return (
-        <main className="d-flex flex-nowrap">
+        <main className="d-flex flex-nowrap mt-3">
             <div className="container">
                 <div className="row mb-3 text-center">
                     <div className="col-md-3 themed-grid-col">
@@ -407,8 +407,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="col-md-6 themed-grid-col">
-                        {' '}
-                        هنا هضيف البوستات
+                        <Addpost />
                     </div>
                     <div className="col-md-3 themed-grid-col">
                         <div className="list-group w-auto ww-auto">
