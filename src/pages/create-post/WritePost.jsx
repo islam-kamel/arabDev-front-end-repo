@@ -3,6 +3,7 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 const WritePost = ({
     markdown,
     setMarkdown,
+    postTitle,
     setPostTitle,
     setPostTags,
     postTags,
@@ -20,7 +21,6 @@ const WritePost = ({
                 (tag) => parseInt(tag.id) !== parseInt(e.target.parentNode.id)
             )
         )
-        console.log(postTags) // console.log(e.target.parentNode.id)
     }
 
     return (
@@ -31,6 +31,7 @@ const WritePost = ({
                 }}
                 placeholder="اكتب عنوان المنشور"
                 required
+                defaultValue={postTitle}
                 className="w-full p-2 border-2 rounded-md mt-6 border-gray-400"
             />
             <div className="border-2 flex gap-3 mt-7  rounded-md py-2 px-2 flex-wrap border-black ">
@@ -52,17 +53,28 @@ const WritePost = ({
                 <input
                     ref={tagsInputRef}
                     onKeyDown={(e) => {
-                        if (e.keyCode === 13) {
-                            if (postTags.includes(e.target.value)) return
+                        if (e.keyCode === 13 && postTags.length === 10) {
+                            alert('10 تقنيات فقط')
+                            return
+                        }
+                        if (e.keyCode === 13 && e.target.value.trim()) {
+                            if (
+                                postTags.some(
+                                    (tag) => tag.title === e.target.value
+                                )
+                            ) {
+                                return
+                            }
                             setPostTags((pre) => [
                                 ...pre,
                                 {
                                     id: Math.random() * 1000000,
-                                    title: e.target.value,
+                                    title: e.target.value.trim(),
                                 },
                             ])
                         }
                     }}
+                    defaultValue={postTags}
                     placeholder="اكتب هنا تقنيات"
                     className="w-[200px] p-2 tags-input  "
                 />
