@@ -39,5 +39,6 @@
 }
 
 .search-button:hover {
-    background-color: blueviolet !important;
+    background-color: #babbeb !important;
+    color: #1b1f4b !important;
 }
