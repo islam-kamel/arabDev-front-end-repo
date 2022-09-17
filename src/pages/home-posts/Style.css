@@ -1,9 +1,8 @@
-.container {
+/* .container {
     padding-top: 6px;
     border: 0px solid #245798;
     margin: 11px auto;
     border-radius: 13px;
-    /* background-image: linear-gradient(270deg, #6792473b, transparent); */
 }
 .bor-post {
     border: 1px solid #fff;
@@ -16,8 +15,6 @@
     font-weight: 900;
 }
 .content {
-    /* margin-top: 0;
-    margin-bottom: 1rem; */
     margin: auto 0px;
     text-align: center;
     padding: 3px;
@@ -38,22 +35,21 @@
     align-items: center;
     border: 0px solid #245798 !important;
 }
-/* ////////scotch.js/////////// */
 .hreff {
-    display: 'flex';
-    justify-content: 'center';
+    display: flex;
+    justify-content: center;
 }
 
 .prag {
-    width: 'max-content';
-    display: 'flex';
-    margin: '15px';
-    background: 'rgb(15,14,28)';
+    width: max-content;
+    display: flex;
+    margin: 15px;
+    background: rgb(15, 14, 28);
 }
 .linkk {
-    color: '#40A8F3';
-    text-decoration: 'none';
-    display: 'inline-block';
-    padding: '0 0 3px';
-    border-bottom: '2px solid #40A8F3';
-}
+    color: #40a8f3;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 0 3px;
+    border-bottom: 2px solid #40a8f3;
+} */
