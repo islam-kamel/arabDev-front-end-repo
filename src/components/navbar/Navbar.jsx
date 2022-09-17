@@ -7,6 +7,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 import './navbar.css'
 import CreateButton from 'components/Buttons/createButton/CreateButton.jsx'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const NavigationBar = () => {
     return (
@@ -23,14 +25,16 @@ const NavigationBar = () => {
                     style={{ transition: 'ease 0.4s' }}
                     id="navbarScroll"
                 >
-                    <Form className="d-flex items-center md:mt-3 mr-auto">
+                    <Form className="d-flex items-center md:mt-3 mr-auto position-relative">
                         <Form.Control
                             type="search"
                             placeholder="ابحث هنا"
                             className="me-2"
                             aria-label="Search"
                         />
-                        <Button variant="outline-success">بحث</Button>
+                        <Button className="position-absolute search-button">
+                            <FontAwesomeIcon icon={faSearch} />
+                        </Button>
                     </Form>
                     <Nav
                         className="my-2 my-lg-0 gap-3 flex ml-auto items-center"

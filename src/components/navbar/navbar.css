@@ -7,6 +7,7 @@
 
 .nav-link {
     position: relative;
+    width: auto !important;
 }
 .nav-link::before {
     position: absolute;
@@ -21,4 +22,22 @@
 
 .nav-link:hover:not(:last-child):before {
     width: 72%;
+}
+
+.search-button {
+    background-color: #0000 !important;
+    border: #0000 !important;
+    color: black !important;
+    margin-right: 6px;
+    font-size: 1rem !important;
+    left: auto !important;
+    right: 1px !important;
+    height: 100%;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.search-button:hover {
+    background-color: blueviolet !important;
 }
