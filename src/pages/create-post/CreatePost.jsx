@@ -9,17 +9,30 @@ const CreatePost = () => {
     const [postTitle, setPostTitle] = useState('')
     const [postTags, setPostTags] = useState([])
     const [markdown, setMarkdown] = useState('')
+
     useEffect(() => {
-        setMarkdown(localStorage.getItem('markdown'))
+        if (
+            setMarkdown(localStorage.getItem('markdown')) &&
+            setPostTitle(localStorage.getItem('postTitle')) &&
+            setPostTags(JSON.parse(localStorage.getItem('postTags')))
+        ) {
+            setMarkdown(localStorage.getItem('markdown'))
+            setPostTitle(localStorage.getItem('postTitle'))
+            setPostTags(JSON.parse(localStorage.getItem('postTags')))
+        }
+
+        // console.log(localStorage.getItem('postTags'))
     }, [])
 
     useEffect(() => {
         if (isRenderd) {
             localStorage.setItem('markdown', markdown)
+            localStorage.setItem('postTitle', postTitle)
+            localStorage.setItem('postTags', JSON.stringify(postTags))
         } else {
             setIsRendered(true)
         }
-    }, [markdown])
+    }, [markdown, postTitle, postTags])
 
     return (
         <Container className="bg-white mt-7 py-7  rounded-lg">

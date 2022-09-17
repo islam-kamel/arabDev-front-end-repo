@@ -9,7 +9,8 @@ import hljs from 'highlight.js'
 import remarkToc from 'remark-toc'
 const PreviewPost = ({ markdown }) => {
     useEffect(() => {
-        hljs.initHighlighting()
+        hljs.safeMode()
+        hljs.initHighlightingOnLoad()
     }, [])
     return (
         <Container>

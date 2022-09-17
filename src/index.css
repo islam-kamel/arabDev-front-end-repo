@@ -22,3 +22,11 @@ pre {
 path {
     pointer-events: none;
 }
+
+.tags-input {
+    border: none;
+}
+.tags-input:focus-visible {
+    outline: none;
+    border-bottom: 1px solid;
+}
