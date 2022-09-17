@@ -7,6 +7,7 @@ import Login from './pages/login/Login.jsx'
 import CreatePost from './pages/create-post/CreatePost'
 import Home from './Home/Home.js'
 import Addpost from './pages/Addposts/Addpost'
+import Profile from './pages/Profile/Profile'
 function App() {
     return (
         <Router>
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/addpost" element={<Addpost />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route />
             </Routes>
         </Router>

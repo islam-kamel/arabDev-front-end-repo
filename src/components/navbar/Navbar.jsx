@@ -12,7 +12,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const NavigationBar = () => {
     return (
-        <Navbar className="shadow-md sticky-top bg-white" expand="md">
+        <Navbar className="shadow-md sticky-top bg-white height" expand="md">
             <Container>
                 <Navbar.Brand className="logo" href="#">
                     ArabiansDevWorld
