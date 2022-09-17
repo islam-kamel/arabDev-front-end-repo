@@ -12,11 +12,10 @@ function App() {
         <Router>
             <NavigationBar />
             <Routes>
-                <Route path="/" />
+                <Route path="/" element={<Home />} />
                 <Route path="new" element={<CreatePost />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/home" element={<Home />} />
                 <Route path="/addpost" element={<Addpost />} />
                 <Route />
             </Routes>

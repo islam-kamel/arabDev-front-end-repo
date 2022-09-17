@@ -10,7 +10,7 @@ import Addpost from '../pages/Addposts/Addpost'
 import './Sidebar.css'
 const Home = () => {
     return (
-        <main className="d-flex flex-nowrap">
+        <main className="d-flex flex-nowrap mt-3">
             <div className="container">
                 <div className="row mb-3 text-center">
                     <div className="col-md-3 themed-grid-col">
