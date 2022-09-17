@@ -3,18 +3,17 @@ import React, { useEffect, useState } from 'react'
 import PreviewPost from './PreviewPost.jsx'
 import WritePost from './WritePost.jsx'
 
-const CreatePost = () => {
+const CreatePost = ({ isRenderd, setIsRendered }) => {
     const [isWriting, setIsWriting] = useState(true)
-    const [isRenderd, setIsRendered] = useState(false)
     const [postTitle, setPostTitle] = useState('')
     const [postTags, setPostTags] = useState([])
     const [markdown, setMarkdown] = useState('')
 
     useEffect(() => {
         if (
-            setMarkdown(localStorage.getItem('markdown')) &&
-            setPostTitle(localStorage.getItem('postTitle')) &&
-            setPostTags(JSON.parse(localStorage.getItem('postTags')))
+            localStorage.getItem('markdown') &&
+            localStorage.getItem('postTitle') &&
+            JSON.parse(localStorage.getItem('postTags'))
         ) {
             setMarkdown(localStorage.getItem('markdown'))
             setPostTitle(localStorage.getItem('postTitle'))
