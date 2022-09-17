@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
+
+.logo {
+    font-family: 'Germania One', cursive;
+    font-size: 2rem !important;
+}
+
 .nav-link {
     position: relative;
 }
