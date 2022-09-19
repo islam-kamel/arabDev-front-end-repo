@@ -1,59 +1,56 @@
-import React, { useEffect, useState, createContext } from 'react'
 import './App.css'
-import Register from 'pages/register/Register'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes,
+    Navigate,
+} from 'react-router-dom'
 import NavigationBar from './components/navbar/Navbar.jsx'
+import React, { useState, useContext } from 'react'
+
+import Register from './pages/register/Register'
+import { IsLoggedInContext } from './context/IsLoggedInContext'
 import Login from './pages/login/Login.jsx'
 import CreatePost from './pages/create-post/CreatePost'
-import Home from './Home/Home.js'
-// import Addpost from './pages/Addposts/Addpost'
-export const savedPostsContext = createContext()
+import Home from './pages/Home/Home.jsx'
+import Profile from './pages/Profile/Profile'
 
 function App() {
     const [isRenderd, setIsRendered] = useState(false)
+    const { isLoggedIn } = useContext(IsLoggedInContext)
 
-    const [savedPosts, setSavedPosts] = useState([])
-
-    useEffect(() => {
-        if (JSON.parse(localStorage.getItem('savedPosts'))) {
-            setSavedPosts(JSON.parse(localStorage.getItem('savedPosts')))
-        }
-    }, [])
-
-    useEffect(() => {
-        if (isRenderd) {
-            localStorage.setItem('savedPosts', JSON.stringify(savedPosts))
-        } else {
-            setIsRendered(true)
-        }
-    }, [savedPosts])
     return (
         <Router>
             <NavigationBar />
             <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/register" element={<Register />} replace />
+                <Route path="/login" element={<Login />} replace />
                 <Route
-                    path="/"
+                    path="/new"
                     element={
-                        <savedPostsContext.Provider
-                            value={{ savedPosts, setSavedPosts }}
-                        >
-                            <Home />
-                        </savedPostsContext.Provider>
+                        isLoggedIn ? (
+                            <CreatePost
+                                isRenderd={isRenderd}
+                                setIsRendered={setIsRendered}
+                            />
+                        ) : (
+                            <Navigate to="/login" replace />
+                        )
                     }
                 />
                 <Route
-                    path="new"
+                    path="/profile"
                     element={
-                        <CreatePost
-                            isRenderd={isRenderd}
-                            setIsRendered={setIsRendered}
-                        />
+                        isLoggedIn ? (
+                            <Profile />
+                        ) : (
+                            <Navigate to="/login" replace />
+                        )
                     }
                 />
-                <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
-                <Route />
             </Routes>
+            {/* </userDataContext.Provider> */}
         </Router>
     )
 }

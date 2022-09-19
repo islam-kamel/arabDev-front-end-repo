@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import SignIn from '../../components/Buttons/sign-in/SignIn'
 import './Register.css'
 import CreateButton from '../../components/Buttons/createButton/CreateButton'
 import { Container } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import axios from 'axios'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({
     firstName: yup.string().required('يجب كتابه الاسم الاول'),
     lastName: yup.string().required('يجب كتابه الاسم الاخير'),
     email: yup.string().email().required('يجب كتابه البريد الاكتروني'),
-    userName: yup.string().required('  يجب كتابه اسم المستخدم '),
+    userName: yup.string().max(50).required('يجب كتابه اسم المستخدم '),
+    dateOfBirth: yup.date('ادخل تاريخ ميلادك').required('ادخل تاريخ ميلادك'),
     password: yup
         .string()
         .min(6, 'يجب ان يزيد رمز المرور عن 6 احرف')
@@ -24,6 +26,9 @@ const schema = yup.object().shape({
 })
 
 const Register = () => {
+    const emailErrorRef = useRef()
+    const userNameErrorRef = useRef()
+
     const {
         register,
         handleSubmit,
@@ -32,17 +37,26 @@ const Register = () => {
         resolver: yupResolver(schema),
     })
 
-    const submitHandler = (data) => {
-        console.log(data)
+    const submitHandler = async (data) => {
+        try {
+            await axios.post('http://localhost/api/v1/user/register', {
+                username: data.userName,
+                date_of_birth: new Date(data.dateOfBirth)
+                    .toISOString()
+                    .slice(0, 10),
+                email: data.email,
+                password: data.password,
+            })
+        } catch (err) {
+            userNameErrorRef.current.innerText =
+                err?.response?.data?.username[0]
+            emailErrorRef.current.innerText = err?.response?.data?.email[0]
+        }
     }
-    const errorHandler = (data) => {
-        console.log(data)
-    }
-
     return (
         <Container className="py-7">
             <form
-                onSubmit={handleSubmit(submitHandler, errorHandler)}
+                onSubmit={handleSubmit(submitHandler)}
                 className=" register-form bg-white w-full  max-w-[700px] min-h-[600px]  py-16 justify-center mx-auto flex flex-col  rounded-lg px-4 "
             >
                 <h1 className="text-center text-3xl	 font-bold mb-3 ">
@@ -95,7 +109,7 @@ const Register = () => {
                                 required
                                 {...register('userName')}
                             ></input>
-                            <p className="text-red-600">
+                            <p ref={userNameErrorRef} className="text-red-600">
                                 {errors.userName?.message}
                             </p>
                         </div>
@@ -107,7 +121,7 @@ const Register = () => {
                                 required
                                 {...register('email')}
                             ></input>
-                            <p className="text-red-600">
+                            <p ref={emailErrorRef} className="text-red-600">
                                 {errors.email?.message}
                             </p>
                         </div>
@@ -136,10 +150,24 @@ const Register = () => {
                             </p>
                         </div>
                     </div>
+                    <div className="flex flex-col gap-2">
+                        <label>تاريخ ميلاك</label>
+                        <input
+                            type="date"
+                            name="dateOfBirth"
+                            {...register('dateOfBirth')}
+                        />
+
+                        {errors.dateOfBirth?.message && (
+                            <p className="text-red-600">
+                                يجب ادخال تاريخ ميلادك
+                            </p>
+                        )}
+                    </div>
                 </div>
                 <CreateButton
                     type="submit"
-                    tailwindStyles="px-11 block mx-auto"
+                    tailwindStyles="px-11 mt-11 block mx-auto"
                     text="انشاء حساب"
                 />
             </form>

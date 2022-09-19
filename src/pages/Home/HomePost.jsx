@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import Scotch from './Scotch'
-import { savedPostsContext } from '../../App'
-import './Style.css'
+import { SavedPostsContext } from '../../context/SavedPostsContext'
 import posts from './posts-data'
 
 /**
@@ -10,7 +9,7 @@ import posts from './posts-data'
  */
 
 function HomePost() {
-    const { savedPosts, setSavedPosts } = useContext(savedPostsContext)
+    const { savedPosts, setSavedPosts } = useContext(SavedPostsContext)
 
     return (
         <div className="App pt-2">
@@ -26,9 +25,8 @@ function HomePost() {
                             id={post.id}
                         >
                             <div
-                                className={`absolute bg-center mb-12 top-0 left-0 bg-cover w-full h-[200px]   bg-[url('${
-                                    post.img ? post?.img : null
-                                }')]`}
+                                className={`absolute bg-center mb-12 top-0 left-0 bg-cover w-full h-[200px]`}
+                                style={{ backgroundImage: `url(${post?.img})` }}
                             ></div>
                             <div className={post.img ? `mt-[200px]` : null}>
                                 <h3 className="text-3xl md:text-2xl mt-2 font-bold">
@@ -99,7 +97,8 @@ function HomePost() {
                                         aria-label="Save to reading list"
                                         title="Save to reading list"
                                     >
-                                        {savedPosts.find(
+                                        {Array.isArray(savedPosts) &&
+                                        savedPosts.find(
                                             (savedPost) =>
                                                 savedPost.id === post.id
                                         ) ? (

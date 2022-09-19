@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
-
+.height {
+    height: 60px;
+}
 .logo {
     font-family: 'Germania One', cursive;
     font-size: 2rem !important;
@@ -20,7 +22,7 @@
     border-radius: 2px;
 }
 
-.nav-link:hover:not(:last-child):before {
+.nav-link:not(.nav-btn):hover:before {
     width: 72%;
 }
 

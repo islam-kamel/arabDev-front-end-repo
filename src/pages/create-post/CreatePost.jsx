@@ -8,7 +8,7 @@ const CreatePost = ({ isRenderd, setIsRendered }) => {
     const [postTitle, setPostTitle] = useState('')
     const [postTags, setPostTags] = useState([])
     const [markdown, setMarkdown] = useState('')
-
+    // const [postImg, setPostImg] = useState({})
     useEffect(() => {
         if (
             localStorage.getItem('markdown') &&
@@ -19,19 +19,21 @@ const CreatePost = ({ isRenderd, setIsRendered }) => {
             setPostTitle(localStorage.getItem('postTitle'))
             setPostTags(JSON.parse(localStorage.getItem('postTags')))
         }
-
-        // console.log(localStorage.getItem('postTags'))
     }, [])
 
     useEffect(() => {
         if (isRenderd) {
             localStorage.setItem('markdown', markdown)
             localStorage.setItem('postTitle', postTitle)
-            localStorage.setItem('postTags', JSON.stringify(postTags))
+            // localStorage.setItem('postImg', postImg)
         } else {
             setIsRendered(true)
         }
     }, [markdown, postTitle, postTags])
+
+    // useEffect(() => {
+    //     console.log(postImg)
+    // }, [postImg])
 
     return (
         <Container className="bg-white mt-7 py-7  rounded-lg">
@@ -64,6 +66,8 @@ const CreatePost = ({ isRenderd, setIsRendered }) => {
                     postTags={postTags}
                     postTitle={postTitle}
                     setPostTags={setPostTags}
+                    // setPostImg={setPostImg}
+                    // postImg={postImg}
                     markdown={markdown}
                 />
             ) : (

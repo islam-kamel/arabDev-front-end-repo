@@ -3,7 +3,7 @@
 export default [
     {
         id: 1,
-        img: 'https://www.imgacademy.com/themes/custom/imgacademy/images/helpbox-contact.jpg',
+        img: 'https://i.natgeofe.com/k/75ac774d-e6c7-44fa-b787-d0e20742f797/giant-panda-eating_16x9.jpg',
         date: '13 may 2022',
         author: '😃 mohammed',
         title: 'The Importance of Reading Documentation',

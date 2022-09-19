@@ -10,7 +10,6 @@ const WritePost = ({
 }) => {
     useEffect(() => {
         tagsInputRef.current.value = null
-        console.log(postTags)
     }, [postTags])
 
     const tagsInputRef = useRef()
@@ -32,9 +31,12 @@ const WritePost = ({
                 اختر صوره المنشور
             </label>
             <input
-                className="block   w-full text-sm   rounded-lg border border-gray-300 cursor-pointer text-white focus:outline-none bg-gray-700 p-1 "
+                className="block w-full text-sm   rounded-lg border border-gray-300 cursor-pointer text-white focus:outline-none bg-gray-700 p-1 "
                 id="file_input"
                 type="file"
+                onChange={(e) => {
+                    // setPostImg(URL.createObjectURL(e.target.files[0]))
+                }}
             />
             <input
                 onChange={(e) => {

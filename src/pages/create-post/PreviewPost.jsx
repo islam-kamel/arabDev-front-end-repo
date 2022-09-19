@@ -15,6 +15,7 @@ const PreviewPost = ({ markdown }) => {
     return (
         <Container>
             <div className="mt-10"></div>
+            <img className="mb-7 w-full h-[300px] object-cover" />
             <ReactMarkdown
                 remarkPlugins={[remarkToc, slug]}
                 retypePlugins={[rehypeHighlight]}

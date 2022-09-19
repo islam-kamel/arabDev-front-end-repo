@@ -6,8 +6,7 @@ import {
     faInstagramSquare,
     faTwitch,
 } from '@fortawesome/free-brands-svg-icons'
-import HomePost from '../pages/home-posts/HomePost'
-import './Sidebar.css'
+import HomePost from './HomePost'
 const Home = () => {
     return (
         <main className="d-flex flex-nowrap mt-3">
