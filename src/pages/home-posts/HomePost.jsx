@@ -40,7 +40,6 @@ function HomePost() {
                                         {post.date}
                                     </p>
                                 </div>
-
                                 <p className="md:hidden">
                                     {post?.content?.slice(0, 150) + ' ...'}
                                 </p>

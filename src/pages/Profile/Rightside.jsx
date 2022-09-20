@@ -1,5 +1,5 @@
 import React from 'react'
-import './Home/Sidebar.css'
+// import './Home/Sidebar.css'
 const Rightside = () => {
     return (
         <div>

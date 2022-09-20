@@ -226,11 +226,23 @@ const Home = () => {
                                     </a>
                                 </li>
                             </ul>
-                            <div>
-                                <FontAwesomeIcon icon={faGithub} />
-                                <FontAwesomeIcon icon={faTwitter} />
-                                <FontAwesomeIcon icon={faInstagramSquare} />
-                                <FontAwesomeIcon icon={faTwitch} />
+                            <div className="">
+                                <FontAwesomeIcon
+                                    className="iconn"
+                                    icon={faGithub}
+                                />
+                                <FontAwesomeIcon
+                                    className="iconn"
+                                    icon={faTwitter}
+                                />
+                                <FontAwesomeIcon
+                                    className="iconn"
+                                    icon={faInstagramSquare}
+                                />
+                                <FontAwesomeIcon
+                                    className="iconn"
+                                    icon={faTwitch}
+                                />
                             </div>
                             <hr />
                             <div className="dropdown pb-5">
