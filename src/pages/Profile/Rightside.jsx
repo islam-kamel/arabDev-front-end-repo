@@ -1,5 +1,7 @@
 import React from 'react'
-// import './Home/Sidebar.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import './Rightside.css'
 const Rightside = () => {
     return (
         <div>
@@ -7,53 +9,92 @@ const Rightside = () => {
                 <div className="list-group w-auto ww-auto">
                     <a
                         href="#"
-                        className="list-group-item list-group-item-action d-flex gap-3 py-3 cont"
+                        className=" list-group-item list-group-item-action d-flex gap-3 py-3 cont head-list"
                         aria-current="true"
                     >
                         <div className="d-flex gap-2 w-100 justify-content-between">
                             <div>
-                                <h6 className="mb-2">
-                                    List group item heading
+                                <h6 className="head-list pb-4">
+                                    GitHub Repositories
+                                </h6>
+                                <h6 className="head-list mb-2">Pizza-Man</h6>
+                                <p className="mb-0 opacity-75">
+                                    🍕🛒 An e-commerce website to order pizza
+                                    online
+                                </p>
+                                <p className="pt-2">JavaScript • 89 stars</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a
+                        href="#"
+                        className="  list-group-item list-group-item-action d-flex gap-3 py-3 cont head-list"
+                        aria-current="true"
+                    >
+                        <div className="d-flex gap-2 w-100 justify-content-between">
+                            <div>
+                                <h6 className="head-list mb-2">SmartsApp</h6>
+                                <p className="mb-0 opacity-75">
+                                    💬📱 An End to End Encrypted Cross Platform
+                                    messenger app{' '}
+                                </p>
+                                <p className="pt-2">JavaScript • 180 stars</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a
+                        href="#"
+                        className=" list-group-item list-group-item-action d-flex gap-3 py-3 cont head-list"
+                        aria-current="true"
+                    >
+                        <div className="d-flex gap-2 w-100 justify-content-between">
+                            <div>
+                                <h6 className="head-list mb-2">
+                                    Crypto-Crowdfund
                                 </h6>
                                 <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph.
+                                    🤑💰 Crowdfunding Platform backed by
+                                    Ethereum Blockchain to bring your creative
+                                    projects to life
                                 </p>
+                                <p className="pt-2">JavaScript • 24 stars</p>
                             </div>
-                            <small className="opacity-50 text-nowrap">
-                                now
-                            </small>
                         </div>
                     </a>
                     <a
                         href="#"
-                        className="list-group-item list-group-item-action d-flex gap-3 py-3 cont"
+                        className=" list-group-item list-group-item-action d-flex gap-3 py-3 cont head-list"
                         aria-current="true"
                     >
                         <div className="d-flex gap-2 w-100 justify-content-between">
                             <div>
-                                <h6 className="mb-2">Another title here</h6>
+                                <h6 className="head-list mb-2">
+                                    The-WeatherMan-Project
+                                </h6>
                                 <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph that
-                                    goes a little longer so it wraps to a new
-                                    line.
+                                    🌞☁️ Get Local and International weather
+                                    forecasts from the most accurate Weather
+                                    Forecasting Technology featuring up to the
+                                    minute Weather Reports.
                                 </p>
+                                <p className="pt-2">CSS • 20 stars</p>
                             </div>
-                            <small className="opacity-50 text-nowrap">3d</small>
                         </div>
                     </a>
                     <a
                         href="#"
-                        className="list-group-item list-group-item-action d-flex gap-3 py-3 cont"
+                        className=" list-group-item list-group-item-action d-flex gap-3 py-3 cont head-list"
                         aria-current="true"
                     >
                         <div className="d-flex gap-2 w-100 justify-content-between">
                             <div>
-                                <h6 className="mb-2">Third heading</h6>
+                                <h6 className="head-list mb-2">UnHook</h6>
                                 <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph.
+                                    💻👨‍💻 Cross Platform Desktop App to remind
+                                    you to Unhook yourself from the Screen.
                                 </p>
+                                <p className="pt-2">JavaScript • 17 stars</p>
                             </div>
-                            <small className="opacity-50 text-nowrap">1w</small>
                         </div>
                     </a>
                 </div>
@@ -65,48 +106,11 @@ const Rightside = () => {
                     >
                         <div className="d-flex gap-2 w-100 justify-content-between">
                             <div>
-                                <h6 className="mb-2">
-                                    List group item heading
+                                <h6 className="head-list pb-4">
+                                    Currently learning
                                 </h6>
-                                <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph.
-                                </p>
+                                <p className="mb-0 opacity-75">Three.js</p>
                             </div>
-                            <small className="opacity-50 text-nowrap">
-                                now
-                            </small>
-                        </div>
-                    </a>
-                    <a
-                        href="#"
-                        className="list-group-item list-group-item-action d-flex gap-3 py-3 cont"
-                        aria-current="true"
-                    >
-                        <div className="d-flex gap-2 w-100 justify-content-between">
-                            <div>
-                                <h6 className="mb-2">Another title here</h6>
-                                <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph that
-                                    goes a little longer so it wraps to a new
-                                    line.
-                                </p>
-                            </div>
-                            <small className="opacity-50 text-nowrap">3d</small>
-                        </div>
-                    </a>
-                    <a
-                        href="#"
-                        className="list-group-item list-group-item-action d-flex gap-3 py-3 cont"
-                        aria-current="true"
-                    >
-                        <div className="d-flex gap-2 w-100 justify-content-between">
-                            <div>
-                                <h6 className="mb-2">Third heading</h6>
-                                <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph.
-                                </p>
-                            </div>
-                            <small className="opacity-50 text-nowrap">1w</small>
                         </div>
                     </a>
                 </div>
@@ -118,48 +122,15 @@ const Rightside = () => {
                     >
                         <div className="d-flex gap-2 w-100 justify-content-between">
                             <div>
-                                <h6 className="mb-2">
-                                    List group item heading
+                                <h6 className="head-list pb-4">
+                                    Skills/Languages
                                 </h6>
                                 <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph.
+                                    React, Redux, Progressive Web App (PWA),
+                                    Firebase, Electron, Flutter, TypeScript,
+                                    JavaScript, Python, Dart, HTML, CSS
                                 </p>
                             </div>
-                            <small className="opacity-50 text-nowrap">
-                                now
-                            </small>
-                        </div>
-                    </a>
-                    <a
-                        href="#"
-                        className="list-group-item list-group-item-action d-flex gap-3 py-3 cont"
-                        aria-current="true"
-                    >
-                        <div className="d-flex gap-2 w-100 justify-content-between">
-                            <div>
-                                <h6 className="mb-2">Another title here</h6>
-                                <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph that
-                                    goes a little longer so it wraps to a new
-                                    line.
-                                </p>
-                            </div>
-                            <small className="opacity-50 text-nowrap">3d</small>
-                        </div>
-                    </a>
-                    <a
-                        href="#"
-                        className="list-group-item list-group-item-action d-flex gap-3 py-3 cont"
-                        aria-current="true"
-                    >
-                        <div className="d-flex gap-2 w-100 justify-content-between">
-                            <div>
-                                <h6 className="mb-2">Third heading</h6>
-                                <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph.
-                                </p>
-                            </div>
-                            <small className="opacity-50 text-nowrap">1w</small>
                         </div>
                     </a>
                 </div>
@@ -171,18 +142,17 @@ const Rightside = () => {
                     >
                         <div className="d-flex gap-2 w-100 justify-content-between">
                             <div>
-                                <h6 className="mb-2">
-                                    List group item heading
+                                <h6 className="head-list pb-4">
+                                    Currently hacking on
                                 </h6>
                                 <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph.
+                                    Open Source Projects, Freelancing
                                 </p>
                             </div>
-                            <small className="opacity-50 text-nowrap">
-                                now
-                            </small>
                         </div>
                     </a>
+                </div>
+                <div className="list-group w-auto ww-auto">
                     <a
                         href="#"
                         className="list-group-item list-group-item-action d-flex gap-3 py-3 cont"
@@ -190,29 +160,48 @@ const Rightside = () => {
                     >
                         <div className="d-flex gap-2 w-100 justify-content-between">
                             <div>
-                                <h6 className="mb-2">Another title here</h6>
+                                <h6 className="head-list pb-4">
+                                    Available for
+                                </h6>
                                 <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph that
-                                    goes a little longer so it wraps to a new
-                                    line.
+                                    React, Web Development, Progressive Web App
+                                    (PWA), Front-end development (HTML, CSS,
+                                    JS), Python, Flutter, Electron
                                 </p>
                             </div>
-                            <small className="opacity-50 text-nowrap">3d</small>
                         </div>
                     </a>
+                </div>
+                <div className="list-group w-auto ww-auto">
                     <a
                         href="#"
-                        className="list-group-item list-group-item-action d-flex gap-3 py-3 cont"
+                        className="list-group-item list-group-item-action d-flex gap-3 cont"
                         aria-current="true"
                     >
                         <div className="d-flex gap-2 w-100 justify-content-between">
                             <div>
-                                <h6 className="mb-2">Third heading</h6>
-                                <p className="mb-0 opacity-75">
-                                    Some placeholder content in a paragraph.
+                                <p className="mb-2">
+                                    <FontAwesomeIcon
+                                        className="mr-3"
+                                        icon={faGithub}
+                                    />{' '}
+                                    82 posts published
+                                </p>
+                                <p className="mb-2">
+                                    <FontAwesomeIcon
+                                        className="mr-3"
+                                        icon={faGithub}
+                                    />{' '}
+                                    82 posts published
+                                </p>
+                                <p className="mb-2">
+                                    <FontAwesomeIcon
+                                        className="mr-3"
+                                        icon={faGithub}
+                                    />{' '}
+                                    82 posts published
                                 </p>
                             </div>
-                            <small className="opacity-50 text-nowrap">1w</small>
                         </div>
                     </a>
                 </div>

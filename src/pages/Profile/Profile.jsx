@@ -7,7 +7,7 @@ import {
     faGithub,
     faMarkdown,
 } from '@fortawesome/free-brands-svg-icons'
-import Addpost from '../home-posts/HomePost'
+// import HomePost from '../pages/home-posts/HomePost'
 import Rightside from './Rightside'
 const Profile = () => {
     return (
@@ -60,10 +60,8 @@ const Profile = () => {
                 {/* // TABS */}
                 <div className="container text-center">
                     <div className="row">
-                        <div className="col-3">col-3</div>
-                        <div className="col-9">
-                            <Addpost />
-                        </div>
+                        {/* <div className="col-3">col-3</div> */}
+                        <div className="col-9">{/* <HomePost/> */}</div>
                     </div>
                 </div>
                 <div className="row">
