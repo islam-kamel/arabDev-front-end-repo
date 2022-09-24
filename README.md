@@ -43,12 +43,12 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ```javascript
 module.exports = {
-    webpack: {
-        alias: {
-            components: path.resolve(__dirname, 'src/components'),
-            pages: path.resolve(__dirname, 'src/pages'),
-            new_alise: path.resolve(__dirname, 'path'),
-        },
+  webpack: {
+    alias: {
+      components: path.resolve(__dirname, 'src/components'),
+      pages: path.resolve(__dirname, 'src/pages'),
+      new_alise: path.resolve(__dirname, 'path'),
     },
+  },
 }
 ```

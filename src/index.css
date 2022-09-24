@@ -4,29 +4,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
 
 :root {
-    --button-color: #3b49df;
-    --secondary-color: #00b4d8;
-    --tertiary-color: #0077b6;
-    --gray-color: #b0b0b0;
+  --button-color: #3b49df;
+  --secondary-color: #00b4d8;
+  --tertiary-color: #0077b6;
+  --gray-color: #b0b0b0;
 }
 body {
-    font-family: 'Tajawal', sans-serif !important;
-    background-color: #f0f0f0 !important;
-    font-weight: 500 !important;
+  font-family: 'Tajawal', sans-serif !important;
+  background-color: #f0f0f0 !important;
+  font-weight: 500 !important;
 }
 
 pre {
-    background-color: #eeeeee !important;
+  background-color: #eeeeee !important;
 }
 
 path {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .tags-input {
-    border: none;
+  border: none;
 }
 .tags-input:focus-visible {
-    outline: none;
-    border-bottom: 1px solid;
+  outline: none;
+  border-bottom: 1px solid;
 }
