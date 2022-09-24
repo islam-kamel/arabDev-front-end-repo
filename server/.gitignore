@@ -2,6 +2,7 @@
 
 /.eslintcache
 /.idea
+/*.iml
 /old_server
 
 # dependencies
