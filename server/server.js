@@ -21,11 +21,11 @@ function getDate(time) {
 app.get('/github/token', (req, res) => {
   const data = GithubOAuth.getApiToken()
   data
-    .then((data) => {
+    .then(data => {
       res.set('Content-Type', 'application/json')
       res.send(JSON.stringify(data))
     })
-    .catch((err) => {
+    .catch(err => {
       console.error(err)
     })
 })
@@ -35,11 +35,19 @@ app.get('/github/callback', (req, res) => {
   GithubOAuth.code = query.code
   const data = GithubOAuth.getGithubToken()
   data
-    .then((data) => {
-      res.send(JSON.stringify(data))
-      console.log(data)
+    .then(data => {
+      res.set('Content-Type', 'application/json')
+      res.set('Accept', 'application/json')
+      res.cookie('access_token', data['access_token'], {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'lax',
+        expires: getDate(data['expires_in']),
+      })
+      res.redirect('http://localhost:3000')
+      res.send('Login Success')
     })
-    .catch((err) => console.error(err))
+    .catch(err => console.error(err))
 })
 
 app.get('/well_done', (req, res) => {

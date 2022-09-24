@@ -22,13 +22,13 @@ class GithubOAuth2 {
           },
         }
       )
-      .then((res) => {
+      .then(res => {
         this.token = res.data
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err.toJSON())
       })
-    return this.token
+    return this.getApiToken()
   }
 
   async getApiToken() {
@@ -49,10 +49,10 @@ class GithubOAuth2 {
           },
         }
       )
-      .then((res) => {
+      .then(res => {
         this.token = res.data
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err.toJSON())
       })
 
@@ -60,4 +60,4 @@ class GithubOAuth2 {
   }
 }
 
-module.exports = { GithubOAuth: new GithubOAuth2() }
+module.exports = { GithubOAuth: new GithubOAuth2({}) }
