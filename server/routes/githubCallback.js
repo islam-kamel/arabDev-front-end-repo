@@ -11,24 +11,22 @@ function getDate(time) {
 router.get('/', function (req, res, next) {
   // eslint-disable-next-line
   const { query } = url.parse(req.url, true)
-  GithubCallback.code = query.code
 
-  const data = GithubCallback.getGithubToken()
-  data
-    .then(data => {
+  GithubCallback.code = query.code
+  GithubCallback.authentication()
+    .then(token => {
       res.set('Content-Type', 'application/json')
       res.set('Accept', 'application/json')
-      res.cookie('access_token', data.access_token, {
+      res.cookie('access_token', token.access_token, {
         httpOnly: true,
         secure: true,
         sameSite: 'lax',
-        expires: getDate(data.expires_in),
+        expires: getDate(token.expires_in),
       })
+      res.status(200)
       res.redirect('http://localhost:3000')
     })
-    .catch(err => {
-      return err
-    })
+    .catch(e => e.message)
 })
 
 module.exports = router

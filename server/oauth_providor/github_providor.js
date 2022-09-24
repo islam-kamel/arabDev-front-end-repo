@@ -1,4 +1,4 @@
-const axios = require('axios')
+const { apiToken, githubToken } = require('./axios_instance')
 
 class GithubOAuth2 {
   constructor(githubCode) {
@@ -7,56 +7,36 @@ class GithubOAuth2 {
   }
 
   async getGithubToken() {
-    await axios
-      .post(
-        process.env.GITHUB_GET_ACCESS_TOKEN_URL,
-        {
-          client_id: process.env.GITHUB_CLIENT_ID,
-          client_secret: process.env.GITHUB_SECRET_KEY,
-          code: this.code,
-        },
-        {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-      .then(res => {
-        this.token = res.data
+    await githubToken
+      .post(null, {
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_SECRET_KEY,
+        code: this.code,
       })
-      .catch(err => {
-        console.error(err.toJSON())
-      })
-
-    return this.getApiToken()
+      .then(res => (this.token = res.data))
+      .catch(e => e.message)
   }
 
   async getApiToken() {
-    await axios
-      .post(
-        process.env.API_CONVERT_TOKEN_URL,
-        {
+    await this.getGithubToken().then(async _ => {
+      await apiToken
+        .post(null, {
           grant_type: 'convert_token',
           client_id: process.env.API_KEY,
           client_secret: process.env.API_SECRET,
           token: this.token.access_token,
           backend: 'github',
-        },
-        {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-      .then(res => {
-        this.token = res.data
-      })
-      .catch(err => {
-        console.error(err.toJSON())
-      })
+        })
+        .then(res => {
+          this.token = res.data
+        })
+        .catch(e => e.message)
+    })
+    return this.token
+  }
 
+  async authentication() {
+    await this.getApiToken().then(res => (this.token = res))
     return this.token
   }
 }
