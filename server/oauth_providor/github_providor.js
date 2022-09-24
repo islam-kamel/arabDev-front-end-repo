@@ -28,6 +28,7 @@ class GithubOAuth2 {
       .catch(err => {
         console.error(err.toJSON())
       })
+
     return this.getApiToken()
   }
 
@@ -60,4 +61,4 @@ class GithubOAuth2 {
   }
 }
 
-module.exports = { GithubOAuth: new GithubOAuth2({}) }
+module.exports = { GithubOAuth: new GithubOAuth2() }
