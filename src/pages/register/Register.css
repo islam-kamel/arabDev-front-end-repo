@@ -1,30 +1,30 @@
 .register-form {
-    direction: rtl;
+  direction: rtl;
 }
 .form-div > div > div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .form-div > div {
-    display: flex;
-    gap: 30px;
+  display: flex;
+  gap: 30px;
 }
 
 .form-div > div div {
-    margin-block: 6px;
-    flex: 1;
+  margin-block: 6px;
+  flex: 1;
 }
 .form-div div input {
-    border: 1px solid rgba(0, 0, 0, 0.386);
-    padding: 7px 10px;
-    border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.386);
+  padding: 7px 10px;
+  border-radius: 5px;
 }
 
 @media (max-width: 550px) {
-    .form-div > div {
-        display: flex;
-        flex-direction: column;
-        gap: 0px;
-    }
+  .form-div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
 }

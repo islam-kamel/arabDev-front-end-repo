@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ArabiansDevWorld (_Frontend_)
 
 ## Available Scripts
 
@@ -39,16 +37,69 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Hot to add path alise
+## How to add path alise
 
 ```javascript
 module.exports = {
-    webpack: {
-        alias: {
-            components: path.resolve(__dirname, 'src/components'),
-            pages: path.resolve(__dirname, 'src/pages'),
-            new_alise: path.resolve(__dirname, 'path'),
-        },
+  webpack: {
+    alias: {
+      components: path.resolve(__dirname, 'src/components'),
+      pages: path.resolve(__dirname, 'src/pages'),
+      new_alise: path.resolve(__dirname, 'path'),
     },
+  },
 }
 ```
+
+Now You Can Import components From Anywhere Just Type `'components/<your-component>'`
+
+---
+
+## How to Create Button
+
+```jsx
+import CreateButton from 'components/buttons/CreateButton'
+
+;<CreateButton text="Added SomeText" />
+```
+
+### Attribute
+
+#### **className**
+
+You Can Add Custom CSS Classes
+such `className="login-with-google-btn md:w-[90%] w-[60%] justify-center mx-auto mt-9"`
+
+---
+
+#### **icon**
+
+You Can Add Path For Icon Or FortAwesome Icon
+such `icon={faGithub}`
+if using FortAwesome set `fontAwesomeIcon={true}`
+
+```jsx
+<CreateButton text="Hello, Icon" icon={faGithub} fontAwesomeIcon={true} />
+```
+
+#### **alt**
+
+If Using Icon From Path or HyperLink You Can Set `alt={"Your Text"}`
+
+---
+
+#### **href**
+
+If You Need Added HyperLink In You Button Use `href="Your Link"`
+
+---
+
+#### **onClick**
+
+Support onClick Event
+
+---
+
+#### **type**
+
+You Can Set Custom Type, Value `button` by default

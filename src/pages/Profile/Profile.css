@@ -1,26 +1,26 @@
 .back {
-    height: 100px;
-    background: var(--bs-blue);
-    padding: 1px;
+  height: 100px;
+  background: var(--bs-blue);
+  padding: 1px;
 }
 .back-pro {
-    border-radius: 8px;
-    background: linear-gradient(25deg, #51393914, transparent);
-    box-shadow: 0px 3px 0px 0px var(--bs-gray-400);
+  border-radius: 8px;
+  background: linear-gradient(25deg, #51393914, transparent);
+  box-shadow: 0px 3px 0px 0px var(--bs-gray-400);
 }
 .img-profile {
-    margin: auto;
+  margin: auto;
 }
 .bio {
-    text-align: center;
+  text-align: center;
 }
 .align {
-    justify-content: center;
-    align-content: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 .nn {
-    margin: 8px 12px;
-    font-size: 20px;
+  margin: 8px 12px;
+  font-size: 20px;
 }

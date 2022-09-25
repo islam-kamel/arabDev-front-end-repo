@@ -3,6 +3,8 @@
 /.eslintcache
 /.idea
 /*.iml
+/old_server
+
 # dependencies
 /node_modules
 /.pnp

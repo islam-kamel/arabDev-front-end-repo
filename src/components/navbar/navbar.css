@@ -1,46 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
 .height {
-    height: 60px;
+  height: 60px;
 }
 .logo {
-    font-family: 'Germania One', cursive;
-    font-size: 2rem !important;
+  font-family: 'Germania One', cursive;
+  font-size: 2rem !important;
 }
 
 .nav-link {
-    position: relative;
-    width: auto !important;
+  position: relative;
+  width: auto !important;
 }
 .nav-link::before {
-    position: absolute;
-    bottom: -2px;
-    width: 0%;
-    background-color: rgba(0, 0, 0, 0.759);
-    height: 3px;
-    content: '';
-    transition: 0.3s all ease;
-    border-radius: 2px;
+  position: absolute;
+  bottom: -2px;
+  width: 0%;
+  background-color: rgba(0, 0, 0, 0.759);
+  height: 3px;
+  content: '';
+  transition: 0.3s all ease;
+  border-radius: 2px;
 }
 
 .nav-link:not(.nav-btn):hover:before {
-    width: 72%;
+  width: 72%;
 }
 
 .search-button {
-    background-color: #0000 !important;
-    border: #0000 !important;
-    color: black !important;
-    margin-right: 6px;
-    font-size: 1rem !important;
-    left: auto !important;
-    right: 1px !important;
-    height: 100%;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin-top: 0 !important;
+  background-color: #0000 !important;
+  border: #0000 !important;
+  color: black !important;
+  margin-right: 6px;
+  font-size: 1rem !important;
+  left: auto !important;
+  right: 1px !important;
+  height: 100%;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
 }
 
 .search-button:hover {
-    background-color: #babbeb !important;
-    color: #1b1f4b !important;
+  background-color: #babbeb !important;
+  color: #1b1f4b !important;
 }
