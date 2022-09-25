@@ -9,7 +9,7 @@ module.exports = {
     alias: {
       components: path.resolve(__dirname, 'src/components/'),
       pages: path.resolve(__dirname, 'src/pages'),
-      buttons: path.resolve(__dirname, 'src/components/Buttons/'),
+      // buttons: path.resolve(__dirname, 'src/components/Buttons/'),
     },
   },
 }

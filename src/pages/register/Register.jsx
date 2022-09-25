@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import './Register.css'
-import CreateButton from '../../components/Buttons/CreateButton'
+import CreateButton from 'components/buttons/CreateButton'
 import { Container } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -36,7 +36,7 @@ const Register = () => {
     resolver: yupResolver(schema),
   })
 
-  const submitHandler = async (data) => {
+  const submitHandler = async data => {
     try {
       await axios.post('http://localhost/api/v1/user/register', {
         username: data.userName,
@@ -55,9 +55,7 @@ const Register = () => {
         onSubmit={handleSubmit(submitHandler)}
         className=" register-form bg-white w-full  max-w-[700px] min-h-[600px]  py-16 justify-center mx-auto flex flex-col  rounded-lg px-4 "
       >
-        <h1 className="text-center text-3xl	 font-bold mb-3 ">
-          مرحبا بكم في مجتمع البرمجه العربي
-        </h1>
+        <h1 className="text-center text-3xl	 font-bold mb-3 ">مرحبا بكم في مجتمع البرمجه العربي</h1>
         {/* <SignIn
                     operation="Sign up"
                     img="https://freesvg.org/img/1534129544.png"
@@ -72,22 +70,12 @@ const Register = () => {
           <div>
             <div>
               <label>الاسم الاول</label>
-              <input
-                name="firstName"
-                type="text"
-                required
-                {...register('firstName')}
-              ></input>
+              <input name="firstName" type="text" required {...register('firstName')}></input>
               <p className="text-red-500">{errors.firstName?.message}</p>
             </div>
             <div>
               <label>الاسم الاخير</label>
-              <input
-                name="lastName"
-                type="text"
-                required
-                {...register('lastName')}
-              ></input>
+              <input name="lastName" type="text" required {...register('lastName')}></input>
 
               <p className="text-red-500">{errors.lastName?.message}</p>
             </div>
@@ -95,24 +83,14 @@ const Register = () => {
           <div>
             <div>
               <label>اسم المستخدم </label>
-              <input
-                name="userName"
-                type="text"
-                required
-                {...register('userName')}
-              ></input>
+              <input name="userName" type="text" required {...register('userName')}></input>
               <p ref={userNameErrorRef} className="text-red-600">
                 {errors.userName?.message}
               </p>
             </div>
             <div>
               <label>البريد الالكتروني </label>
-              <input
-                name="email"
-                type="email"
-                required
-                {...register('email')}
-              ></input>
+              <input name="email" type="email" required {...register('email')}></input>
               <p ref={emailErrorRef} className="text-red-600">
                 {errors.email?.message}
               </p>
@@ -126,32 +104,18 @@ const Register = () => {
             </div>
             <div>
               <label> Confirm password </label>
-              <input
-                required
-                name="confirmPassword"
-                {...register('confirmPassword')}
-              ></input>
+              <input required name="confirmPassword" {...register('confirmPassword')}></input>
               <p className="text-red-600">{errors.confirmPassword?.message}</p>
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <label>تاريخ ميلاك</label>
-            <input
-              type="date"
-              name="dateOfBirth"
-              {...register('dateOfBirth')}
-            />
+            <input type="date" name="dateOfBirth" {...register('dateOfBirth')} />
 
-            {errors.dateOfBirth?.message && (
-              <p className="text-red-600">يجب ادخال تاريخ ميلادك</p>
-            )}
+            {errors.dateOfBirth?.message && <p className="text-red-600">يجب ادخال تاريخ ميلادك</p>}
           </div>
         </div>
-        <CreateButton
-          type="submit"
-          tailwindStyles="px-11 mt-11 block mx-auto"
-          text="انشاء حساب"
-        />
+        <CreateButton type="submit" tailwindStyles="px-11 mt-11 block mx-auto" text="انشاء حساب" />
       </form>
     </Container>
   )
