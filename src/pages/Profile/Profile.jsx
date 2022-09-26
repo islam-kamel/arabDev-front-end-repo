@@ -22,6 +22,7 @@ const Profile = () => {
                             className="rounded-full md:absolute top-48 inset-x-96 border-4 border-white w-40 h-40 img-profile"
                         />
                     </div>
+
                     {/* // INFOS */}
                     <div className="flex justify-center flex-col mt-5 mb-3.5">
                         <h1 className="text-center font-bold text-3xl">
