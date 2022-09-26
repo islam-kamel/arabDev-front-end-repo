@@ -8,21 +8,19 @@ import hljs from 'highlight.js'
 
 import remarkToc from 'remark-toc'
 const PreviewPost = ({ markdown }) => {
-    useEffect(() => {
-        hljs.safeMode()
-        hljs.initHighlightingOnLoad()
-    }, [])
-    return (
-        <Container>
-            <div className="mt-10"></div>
-            <ReactMarkdown
-                remarkPlugins={[remarkToc, slug]}
-                retypePlugins={[rehypeHighlight]}
-            >
-                {markdown}
-            </ReactMarkdown>
-        </Container>
-    )
+  useEffect(() => {
+    hljs.safeMode()
+    hljs.initHighlightingOnLoad()
+  }, [])
+  return (
+    <Container>
+      <div className="mt-10"></div>
+      <img className="mb-7 w-full h-[300px] object-cover" />
+      <ReactMarkdown remarkPlugins={[remarkToc, slug]} retypePlugins={[rehypeHighlight]}>
+        {markdown}
+      </ReactMarkdown>
+    </Container>
+  )
 }
 
 export default PreviewPost
