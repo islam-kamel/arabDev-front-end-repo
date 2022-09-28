@@ -23,7 +23,8 @@ import { IsLoggedInContext } from '../../context/IsLoggedInContext'
 
 import { UserDataContext } from '../../context/UserDataContext'
 
-import jwt_decode from 'jwt-decode'
+// import jwt_decode from 'jwt-decode'
+import Cookies from 'js-cookie'
 
 const schema = yup.object().shape({
   userName: yup.string().required(' يجب كتابه البريد الاكتروني او اسم المستخدم'),
@@ -34,7 +35,10 @@ const Login = () => {
   const loginErrorRef = useRef()
   const navigate = useNavigate()
   const { setIsLoggedIn } = useContext(IsLoggedInContext)
-  const { setUserData, setAuthTokens } = useContext(UserDataContext)
+  const {
+    // setUserData,
+    setAuthTokens,
+  } = useContext(UserDataContext)
 
   const {
     register,
@@ -46,16 +50,27 @@ const Login = () => {
 
   const submitHandler = async data => {
     try {
-      const response = await axios.post('http://localhost/api/v1/user/token/', {
+      const grant_type = 'password'
+      const client_id = 'b6y7PdP7i5ffqNfaRBsmdcbDWGigHlxeUP2b2Dfl'
+      const client_secret =
+        'kKyg5EBvL8mAt8Z7DEQ2nsQqrBmXtVCSgau318tkqxBvCiiP3wFP6cn1AizTdRVgKnbj5wwSWCTVMkMf4sa89ByV6eSkmZHjYXieRnHQie7QBRhe8Jnw7RvMZWjJ79qZ'
+      const response = await axios.post('http://localhost/api/v1/auth/token', {
         username: data.userName,
         password: data.password,
+        grant_type,
+        client_id,
+        client_secret,
       })
       setAuthTokens(response.data)
-      console.log(response.data)
-      setUserData(jwt_decode(response.data.access))
+      console.log(response.data.access_token)
+      Cookies.set('token', response.data.access_token, { sameSite: 'none', secure: true })
+      console.log(Cookies.get())
+      // setUserData(jwt_decode(response.data.access_token))
       setIsLoggedIn(true)
       navigate('/')
+      loginErrorRef.current.innerText = ''
     } catch (err) {
+      console.log('err :' + err)
       loginErrorRef.current.innerText = 'يوجد  خطأ في رمز المرور او اسم المسنخدم'
     }
   }
