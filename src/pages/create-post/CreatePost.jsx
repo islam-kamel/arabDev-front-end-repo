@@ -47,20 +47,24 @@ const CreatePost = ({ isRendered, setIsRendered }) => {
   }, [markdown, postTitle, postTags])
 
   const publishNewPost = async () => {
-    const response = await axios.put(
-      'http://localhost/api/v1/feed/',
-      {
-        title: postTitle,
-        content: markdown,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${Cookies.get('access_token')}`,
+    try {
+      const response = await axios.put(
+        'http://localhost/api/v1/feed/',
+        {
+          title: postTitle,
+          content: markdown,
         },
-      }
-    )
-    console.log(response)
-    navigate(-1)
+        {
+          headers: {
+            Authorization: `Bearer ${Cookies.get('access_token')}`,
+          },
+        }
+      )
+      console.log(response)
+      navigate(-1)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
@@ -102,7 +106,7 @@ const CreatePost = ({ isRendered, setIsRendered }) => {
       <div className="flex gap-7 justify-end">
         <CreateButton text="حفظ" />
         <CreateButton text="الغاء" className=" border-[#EA0000] text-[#EA0000] hover:bg-[#EA0000] hover:text-white" />
-        <CreateButton text="نشر" clickFunction={publishNewPost} />
+        <CreateButton text="نشر" onClick={publishNewPost} />
       </div>
     </Container>
   )
