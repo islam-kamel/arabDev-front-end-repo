@@ -10,26 +10,13 @@ import CreateButton from 'components/buttons/CreateButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { IsLoggedInContext } from '../../context/IsLoggedInContext'
-import { UserDataContext } from '../../context/UserDataContext'
-import Cookies from 'js-cookie'
+
+import Profiledropdown from './Profiledropdown'
 
 const NavigationBar = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(IsLoggedInContext)
-
-  const {
-    //  setUserData,
-    setAuthTokens,
-  } = useContext(UserDataContext)
-
-  const logoutUserHandler = () => {
-    // setUserData({})
-    setIsLoggedIn(false)
-    setAuthTokens({ refreshToken: null, accessToken: null })
-    Cookies.set('user_name', null)
-    Cookies.set('user_data', null)
-  }
+  const { isLoggedIn } = useContext(IsLoggedInContext)
   return (
-    <Navbar className="shadow-mdsticky-top bg-white  " expand="lg">
+    <Navbar className="shadow-mdsticky-top bg-white" expand="lg">
       <Container className="py-[2px] ">
         <Navbar.Brand className="logo" href="#">
           ArabiansDevWorld
@@ -60,13 +47,7 @@ const NavigationBar = () => {
                 <Nav.Link as={Link} to="/new" style={{ width: '90%' }} className="nav-btn" href="#">
                   <CreateButton text="انشاء منشور جديد" />
                 </Nav.Link>
-                <Nav.Link as={Link} to="/register" style={{ width: '90%' }} href="#"></Nav.Link>
-                <span onClick={logoutUserHandler}>
-                  <CreateButton
-                    tailwindStyles="bg-red-600 border-none text-white hover:bg-red-500  "
-                    text="تسجيل خروج  "
-                  />
-                </span>
+                <Profiledropdown />
               </>
             )}
           </Nav>
