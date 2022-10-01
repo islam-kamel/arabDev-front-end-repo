@@ -11,14 +11,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { IsLoggedInContext } from '../../context/IsLoggedInContext'
 import { UserDataContext } from '../../context/UserDataContext'
+import Cookies from 'js-cookie'
 
 const NavigationBar = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(IsLoggedInContext)
-  const { setUserData, setAuthTokens } = useContext(UserDataContext)
+
+  const {
+    //  setUserData,
+    setAuthTokens,
+  } = useContext(UserDataContext)
+
   const logoutUserHandler = () => {
-    setUserData({})
+    // setUserData({})
     setIsLoggedIn(false)
-    setAuthTokens({})
+    setAuthTokens({ refreshToken: null, accessToken: null })
+    Cookies.set('user_name', null)
+    Cookies.set('user_data', null)
   }
   return (
     <Navbar className="shadow-mdsticky-top bg-white  " expand="lg">

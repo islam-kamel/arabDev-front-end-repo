@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Profile.css'
 import { Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookMessenger, faGithub, faMarkdown } from '@fortawesome/free-brands-svg-icons'
-// import HomePost from '../pages/home-posts/HomePost'
+import { IsLoggedInContext } from '../../context/IsLoggedInContext'
 import Rightside from './Rightside'
+import { useNavigate } from 'react-router-dom'
 const Profile = () => {
+  const { isLoggedIn } = useContext(IsLoggedInContext)
+  const navigate = useNavigate()
+  const [isRendered, setIsRendered] = useState(false)
+  useEffect(() => {
+    if (isRendered) {
+      if (!isLoggedIn) {
+        navigate('/login')
+      }
+    } else {
+      setIsRendered(true)
+    }
+  })
+
   return (
     <div className="back">
       <Container className="users">
@@ -59,30 +73,3 @@ const Profile = () => {
 }
 
 export default Profile
-// <div className="" key={index}>
-//     <div className="">
-//         <img
-//             src=".."
-//             className="rounded-full md:absolute top-48 inset-x-96 border-4 border-white w-40 h-40 img-profile"
-//         />{user.id}
-//     </div>
-//     <div
-//         className="flex justify-center flex-col mt-5 mb-3.5"
-//         key={index}
-//     >
-//         <h1 className="text-center font-bold text-3xl">
-//             {user.name}
-//         </h1>
-//         <a
-//             href="#"
-//             className="text-center text-blue-700 font-semibold"
-//         >
-//             Add Bio
-//         </a>
-//     </div>
-// </div>
-
-// return (
-//
-
-// )

@@ -1,14 +1,30 @@
 import { Container } from 'react-bootstrap'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import PreviewPost from './PreviewPost.jsx'
 import WritePost from './WritePost.jsx'
-
-const CreatePost = ({ isRenderd, setIsRendered }) => {
+import CreateButton from 'components/buttons/CreateButton'
+import { IsLoggedInContext } from '../../context/IsLoggedInContext'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import Cookies from 'js-cookie'
+const CreatePost = ({ isRendered, setIsRendered }) => {
   const [isWriting, setIsWriting] = useState(true)
   const [postTitle, setPostTitle] = useState('')
   const [postTags, setPostTags] = useState([])
   const [markdown, setMarkdown] = useState('')
   // const [postImg, setPostImg] = useState({})
+  const { isLoggedIn } = useContext(IsLoggedInContext)
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (isRendered) {
+      if (!isLoggedIn) {
+        navigate('/login')
+      }
+    } else {
+      setIsRendered(true)
+    }
+  })
+
   useEffect(() => {
     if (
       localStorage.getItem('markdown') &&
@@ -22,18 +38,34 @@ const CreatePost = ({ isRenderd, setIsRendered }) => {
   }, [])
 
   useEffect(() => {
-    if (isRenderd) {
+    if (isRendered) {
       localStorage.setItem('markdown', markdown)
       localStorage.setItem('postTitle', postTitle)
-      // localStorage.setItem('postImg', postImg)
     } else {
       setIsRendered(true)
     }
   }, [markdown, postTitle, postTags])
 
-  // useEffect(() => {
-  //     console.log(postImg)
-  // }, [postImg])
+  const publishNewPost = async () => {
+    try {
+      const response = await axios.put(
+        'http://localhost/api/v1/feed/',
+        {
+          title: postTitle,
+          content: markdown,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${Cookies.get('access_token')}`,
+          },
+        }
+      )
+      console.log(response)
+      navigate(-1)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <Container className="bg-white mt-7 py-7  rounded-lg">
@@ -66,13 +98,16 @@ const CreatePost = ({ isRenderd, setIsRendered }) => {
           postTags={postTags}
           postTitle={postTitle}
           setPostTags={setPostTags}
-          // setPostImg={setPostImg}
-          // postImg={postImg}
           markdown={markdown}
         />
       ) : (
         <PreviewPost markdown={markdown} />
       )}
+      <div className="flex gap-7 justify-end">
+        <CreateButton text="حفظ" />
+        <CreateButton text="الغاء" className=" border-[#EA0000] text-[#EA0000] hover:bg-[#EA0000] hover:text-white" />
+        <CreateButton text="نشر" onClick={publishNewPost} />
+      </div>
     </Container>
   )
 }

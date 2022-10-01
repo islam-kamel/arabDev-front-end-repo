@@ -54,18 +54,23 @@ const Login = () => {
       const client_id = 'b6y7PdP7i5ffqNfaRBsmdcbDWGigHlxeUP2b2Dfl'
       const client_secret =
         'kKyg5EBvL8mAt8Z7DEQ2nsQqrBmXtVCSgau318tkqxBvCiiP3wFP6cn1AizTdRVgKnbj5wwSWCTVMkMf4sa89ByV6eSkmZHjYXieRnHQie7QBRhe8Jnw7RvMZWjJ79qZ'
-      const response = await axios.post('http://localhost/api/v1/auth/token', {
+      const response = await axios.post('http://localhost/api/v1/auth/token/', {
         username: data.userName,
         password: data.password,
         grant_type,
         client_id,
         client_secret,
       })
-      setAuthTokens(response.data)
-      console.log(response.data.access_token)
-      Cookies.set('token', response.data.access_token, { sameSite: 'none', secure: true })
-      console.log(Cookies.get())
-      // setUserData(jwt_decode(response.data.access_token))
+      setAuthTokens({
+        accessToken: response.data.access_token,
+        refreshToken: response.data.refresh_token,
+      })
+
+      Cookies.set('access_token', response.data.access_token)
+      Cookies.set('refresh_token', response.data.refresh_token)
+      Cookies.set('user_name', data.userName)
+      const userData = await axios.get('http://localhost/api/v1/user/' + data.userName)
+      Cookies.set('user_data', JSON.stringify(userData.data))
       setIsLoggedIn(true)
       navigate('/')
       loginErrorRef.current.innerText = ''

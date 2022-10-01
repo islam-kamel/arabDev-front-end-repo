@@ -1,5 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react'
-
+import Cookies from 'js-cookie'
 export const IsLoggedInContext = createContext()
 
 export const IsLoggedInContextProvider = ({ children }) => {
@@ -7,14 +7,15 @@ export const IsLoggedInContextProvider = ({ children }) => {
   const [isRenderd, setIsRendered] = useState(false)
 
   useEffect(() => {
-    if (localStorage.getItem('loggedIn')) {
-      setIsLoggedIn(JSON.parse(localStorage.getItem('loggedIn')))
+    if (Cookies.get('logged_in')) {
+      setIsLoggedIn(JSON.parse(Cookies.get('logged_in')))
+      console.log(JSON.parse(Cookies.get('logged_in')))
     }
   }, [])
 
   useEffect(() => {
     if (isRenderd) {
-      localStorage.setItem('loggedIn', JSON.stringify(isLoggedIn))
+      Cookies.set('logged_in', JSON.stringify(isLoggedIn))
     } else {
       setIsRendered(true)
     }
