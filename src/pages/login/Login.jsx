@@ -61,6 +61,7 @@ const Login = () => {
         client_id,
         client_secret,
       })
+
       setAuthTokens({
         accessToken: response.data.access_token,
         refreshToken: response.data.refresh_token,
