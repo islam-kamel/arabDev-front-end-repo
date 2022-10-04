@@ -4,8 +4,7 @@ const { GithubOAuth: GithubCallback } = require('../oauth_providor/github_provid
 const url = require('url')
 
 function getDate(time) {
-  const date = new Date(Date.now() + parseInt(time))
-  return date
+  return new Date(Date.now() + parseInt(time))
 }
 
 router.get('/', function (req, res, next) {
