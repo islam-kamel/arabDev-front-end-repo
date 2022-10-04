@@ -1,45 +1,26 @@
-/* eslint-disable camelcase */
-
 import React, { useRef, useContext } from 'react'
-
 import { Container } from 'react-bootstrap'
-
 import CreateButton from '@components/buttons/CreateButton.jsx'
-
 import { GithubButton } from '@components/buttons/oauth/GithubLogin'
-
 import { useForm } from 'react-hook-form'
-
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-
 import './Login.css'
-
 import axios from 'axios'
-
 import { useNavigate } from 'react-router-dom'
-
 import { IsLoggedInContext } from '@context/IsLoggedInContext'
 
-// import { UserDataContext } from '../../context/UserDataContext'
-
-// import jwt_decode from 'jwt-decode'
 import Cookies from 'js-cookie'
 
 const schema = yup.object().shape({
   userName: yup.string().required(' يجب كتابه البريد الاكتروني او اسم المستخدم'),
-  password: yup.string().required('يجب كتابه رمز المرور  '),
+  password: yup.string().required('يجب كتابه رمز المرور'),
 })
 
 const Login = () => {
   const loginErrorRef = useRef()
   const navigate = useNavigate()
   const { setIsLoggedIn } = useContext(IsLoggedInContext)
-  // const {
-  //   setUserData,
-  //   setAuthTokens,
-  // } = useContext(UserDataContext)
-
   const {
     register,
     handleSubmit,
@@ -50,25 +31,14 @@ const Login = () => {
 
   const submitHandler = async data => {
     try {
-      const grant_type = process.env.GRANT_TYPE
-      const client_id = process.env.API_ID
-      const client_secret = process.env.API_SECRET
-
       await axios.post('http://localhost:3001/auth/native', {
         username: data.userName,
         password: data.password,
-        grant_type,
-        client_id,
-        client_secret,
+        grant_type: process.env.REACT_APP_GRANT_TYPE,
+        client_id: process.env.REACT_APP_API_ID,
+        client_secret: process.env.REACT_APP_API_SECRET,
       })
 
-      // setAuthTokens({
-      //   accessToken: response.data.access_token,
-      //   refreshToken: response.data.refresh_token,
-      // })
-
-      // Cookies.set('access_token', response.data.access_token)
-      // Cookies.set('refresh_token', response.data.refresh_token)
       Cookies.set('user_name', data.userName)
       const userData = await axios.get('http://localhost/api/v1/user/' + data.userName)
       Cookies.set('user_data', JSON.stringify(userData.data))
@@ -88,7 +58,7 @@ const Login = () => {
         <GithubButton />
         <form onSubmit={handleSubmit(submitHandler)}>
           <p className="text-red-500 mt-1" ref={loginErrorRef}></p>
-          <label>البريد الالكتروني \ اسم المستخدم</label>
+          <label>البريد الإلكتروني \ اسم المستخدم</label>
           <div>
             <input type="text" name="userName" {...register('userName')} />
             <p className="text-red-500 mt-3">{errors.email?.message}</p>

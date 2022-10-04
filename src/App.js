@@ -8,13 +8,9 @@ import Login from '@pages/login/Login.jsx'
 import CreatePost from '@pages/create-post/CreatePost'
 import Home from '@pages/Home/Home.jsx'
 import Profile from '@pages/Profile/Profile'
-// import * as dotenv from 'dotenv'
-
-// dotenv.config()
 
 function App() {
   const [isRendered, setIsRendered] = useState(false)
-  console.log(process.env.REACT_APP_API_ID)
   return (
     <Router>
       <NavigationBar />
