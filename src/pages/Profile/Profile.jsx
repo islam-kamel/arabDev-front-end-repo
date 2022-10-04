@@ -3,10 +3,10 @@ import './Profile.css'
 import { Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookMessenger, faGithub, faMarkdown } from '@fortawesome/free-brands-svg-icons'
-import { IsLoggedInContext } from '../../context/IsLoggedInContext'
+import { IsLoggedInContext } from '@context/IsLoggedInContext'
 import Rightside from './Rightside'
 import { useNavigate } from 'react-router-dom'
-import HomePost from '../Home/HomePost'
+import HomePost from '@pages/Home/HomePost'
 
 const Profile = () => {
   const { isLoggedIn } = useContext(IsLoggedInContext)

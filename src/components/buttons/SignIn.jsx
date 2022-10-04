@@ -1,7 +1,7 @@
 import React from 'react'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import './SignIn.css'
-import CreateButton from 'buttons/CreateButton'
+import CreateButton from './CreateButton'
 
 function GithubButton(props) {
   return (

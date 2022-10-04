@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import './Register.css'
-import CreateButton from 'components/buttons/CreateButton'
+import CreateButton from '@components/buttons/CreateButton'
 import { Container } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'

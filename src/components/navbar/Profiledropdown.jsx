@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import CreateButton from 'components/buttons/CreateButton'
+import CreateButton from '../../components/buttons/CreateButton'
 import Cookies from 'js-cookie'
 import { IsLoggedInContext } from '../../context/IsLoggedInContext'
 import { UserDataContext } from '../../context/UserDataContext'

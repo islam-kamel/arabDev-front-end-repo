@@ -4,9 +4,9 @@ import React, { useRef, useContext } from 'react'
 
 import { Container } from 'react-bootstrap'
 
-import CreateButton from 'components/buttons/CreateButton.jsx'
+import CreateButton from '@components/buttons/CreateButton.jsx'
 
-import { GithubButton } from 'components/buttons/oauth/GithubLogin'
+import { GithubButton } from '@components/buttons/oauth/GithubLogin'
 
 import { useForm } from 'react-hook-form'
 
@@ -19,7 +19,7 @@ import axios from 'axios'
 
 import { useNavigate } from 'react-router-dom'
 
-import { IsLoggedInContext } from '../../context/IsLoggedInContext'
+import { IsLoggedInContext } from '@context/IsLoggedInContext'
 
 // import { UserDataContext } from '../../context/UserDataContext'
 

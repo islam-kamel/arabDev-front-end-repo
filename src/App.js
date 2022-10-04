@@ -1,16 +1,20 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import NavigationBar from './components/navbar/Navbar.jsx'
+import NavigationBar from '@components/navbar/Navbar.jsx'
 import React, { useState } from 'react'
 
-import Register from './pages/register/Register'
-import Login from './pages/login/Login.jsx'
-import CreatePost from './pages/create-post/CreatePost'
-import Home from './pages/Home/Home.jsx'
-import Profile from './pages/Profile/Profile'
+import Register from '@pages/register/Register'
+import Login from '@pages/login/Login.jsx'
+import CreatePost from '@pages/create-post/CreatePost'
+import Home from '@pages/Home/Home.jsx'
+import Profile from '@pages/Profile/Profile'
+// import * as dotenv from 'dotenv'
+
+// dotenv.config()
 
 function App() {
   const [isRendered, setIsRendered] = useState(false)
+  console.log(process.env.REACT_APP_API_ID)
   return (
     <Router>
       <NavigationBar />

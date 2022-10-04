@@ -1,7 +1,7 @@
 import React from 'react'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import './oauth_btn.css'
-import CreateButton from 'components/buttons/CreateButton'
+import CreateButton from '@components/buttons/CreateButton'
 
 function GithubButton(props) {
   return (
