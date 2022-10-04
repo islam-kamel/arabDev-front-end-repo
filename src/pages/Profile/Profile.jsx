@@ -6,6 +6,8 @@ import { faFacebookMessenger, faGithub, faMarkdown } from '@fortawesome/free-bra
 import { IsLoggedInContext } from '../../context/IsLoggedInContext'
 import Rightside from './Rightside'
 import { useNavigate } from 'react-router-dom'
+import HomePost from '../Home/HomePost'
+
 const Profile = () => {
   const { isLoggedIn } = useContext(IsLoggedInContext)
   const navigate = useNavigate()
@@ -22,50 +24,45 @@ const Profile = () => {
 
   return (
     <div className="back">
-      <Container className="users">
-        <div className="md:relative md:rounded-bl-lg md:rounded-br-lg bg-gradient-to-b back-pro mt-4">
-          {/* // cover photo */}
-          <div className="">
-            {/* profile photo */}
-            <img
-              src=""
-              className="rounded-full md:absolute top-48 inset-x-96 border-4 border-white w-40 h-40 img-profile"
-            />
-          </div>
-
-          {/* // INFOS */}
-          <div className="flex justify-center flex-col mt-5 mb-3.5">
-            <h1 className="text-center font-bold text-3xl">cancoble</h1>
-            <p className="bio">Discussions. 💬 Tools. 🛠 Resources. 📚 All things productivity. 🎯🚀💯</p>
-            <div className="d-flex align">
-              <p className="nn">Joined on Apr 23, 2019</p>
-              <a href="#" className="text-center text-blue-700 font-semibold nn ">
+      <Container className="">
+        <div className="mt-[35px] w-fit mx-auto">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI9HluZ0LFmY4x3AsIe537Tr9AHWMCxhH96a381hNb&s"
+            className="rounded-[100%] border-4 border-white w-[140px] h-[140px] m-0"
+          />
+        </div>
+        <div className="flex justify-center flex-col">
+          <h1 className="text-center font-bold text-4xl my-3">cancoble</h1>
+          <p className="text-center text-slate-600">
+            Discussions. 💬 Tools. 🛠 Resources. 📚 All things productivity. 🎯🚀💯
+          </p>
+          <div>
+            <p className="text-center">Joined on Apr 23, 2019</p>
+            <div className="flex gap-7 mb-3 sm:flex-col items-center justify-center">
+              <a href="#" className="text-center flex gap-2 items-center text-blue-700 font-semibold   ">
                 <FontAwesomeIcon icon={faFacebookMessenger} />
                 hi@madza.dev
               </a>
-              <a href="#" className="text-center text-blue-700 font-semibold nn ">
+              <a href="#" className="text-center flex gap-2 items-center text-blue-700 font-semibold   ">
                 <FontAwesomeIcon icon={faMarkdown} />
                 https://madza.dev
               </a>
-              <p className="nn">
+              <div className="flex gap-4">
                 <FontAwesomeIcon icon={faFacebookMessenger} />
-              </p>
-              <p className="nn">
                 <FontAwesomeIcon icon={faGithub} />
-              </p>
+              </div>
             </div>
           </div>
         </div>
-        {/* // END INFOS */}
-        {/* // TABS */}
-        <div className="container text-center">
-          <div className="row">
-            {/* <div className="col-3">col-3</div> */}
-            <div className="col-9">{/* <HomePost/> */}</div>
+        <div className="container sm:p-1 text-center">
+          <div className="flex gap-4 flex-wrap">
+            <div className=" ">
+              <Rightside />
+            </div>
+            <div className="flex-1 mx-auto">
+              <HomePost />
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <Rightside />
         </div>
       </Container>
     </div>

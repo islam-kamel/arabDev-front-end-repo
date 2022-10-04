@@ -21,7 +21,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { IsLoggedInContext } from '../../context/IsLoggedInContext'
 
-import { UserDataContext } from '../../context/UserDataContext'
+// import { UserDataContext } from '../../context/UserDataContext'
 
 // import jwt_decode from 'jwt-decode'
 import Cookies from 'js-cookie'
@@ -35,10 +35,10 @@ const Login = () => {
   const loginErrorRef = useRef()
   const navigate = useNavigate()
   const { setIsLoggedIn } = useContext(IsLoggedInContext)
-  const {
-    // setUserData,
-    setAuthTokens,
-  } = useContext(UserDataContext)
+  // const {
+  //   setUserData,
+  //   setAuthTokens,
+  // } = useContext(UserDataContext)
 
   const {
     register,
@@ -50,24 +50,25 @@ const Login = () => {
 
   const submitHandler = async data => {
     try {
-      const grant_type = 'password'
-      const client_id = 'b6y7PdP7i5ffqNfaRBsmdcbDWGigHlxeUP2b2Dfl'
-      const client_secret =
-        'kKyg5EBvL8mAt8Z7DEQ2nsQqrBmXtVCSgau318tkqxBvCiiP3wFP6cn1AizTdRVgKnbj5wwSWCTVMkMf4sa89ByV6eSkmZHjYXieRnHQie7QBRhe8Jnw7RvMZWjJ79qZ'
-      const response = await axios.post('http://localhost/api/v1/auth/token/', {
+      const grant_type = process.env.GRANT_TYPE
+      const client_id = process.env.API_ID
+      const client_secret = process.env.API_SECRET
+
+      await axios.post('http://localhost:3001/auth/native', {
         username: data.userName,
         password: data.password,
         grant_type,
         client_id,
         client_secret,
       })
-      setAuthTokens({
-        accessToken: response.data.access_token,
-        refreshToken: response.data.refresh_token,
-      })
 
-      Cookies.set('access_token', response.data.access_token)
-      Cookies.set('refresh_token', response.data.refresh_token)
+      // setAuthTokens({
+      //   accessToken: response.data.access_token,
+      //   refreshToken: response.data.refresh_token,
+      // })
+
+      // Cookies.set('access_token', response.data.access_token)
+      // Cookies.set('refresh_token', response.data.refresh_token)
       Cookies.set('user_name', data.userName)
       const userData = await axios.get('http://localhost/api/v1/user/' + data.userName)
       Cookies.set('user_data', JSON.stringify(userData.data))

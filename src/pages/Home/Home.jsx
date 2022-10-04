@@ -5,9 +5,9 @@ import HomePost from './HomePost'
 const Home = () => {
   return (
     <main className="d-flex flex-nowrap mt-3">
-      <div className="container">
+      <div className="container sm:p-1">
         <div className="row mb-3 text-center">
-          <div className="col-md-3 themed-grid-col">
+          <div className="col-md-3 min-w-[230px] themed-grid-col">
             <div className="d-flex flex-column flex-shrink-0 p-3 bg-light con-left">
               <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <svg className="bi pe-none me-2" width="40" height="32"></svg>
@@ -233,10 +233,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6 themed-grid-col">
+          <div className="col-md-6 lg:!flex-1 themed-grid-col">
             <HomePost />
           </div>
-          <div className="col-md-3 themed-grid-col">
+          <div className="col-md-3 lg:hidden themed-grid-col">
             <div className="list-group w-auto ww-auto">
               <a href="#" className="list-group-item list-group-item-action d-flex gap-3 py-3 cont" aria-current="true">
                 <div className="d-flex gap-2 w-100 justify-content-between">

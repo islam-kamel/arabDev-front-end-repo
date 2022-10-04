@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 export const IsLoggedInContext = createContext()
 
 export const IsLoggedInContextProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
   const [isRenderd, setIsRendered] = useState(false)
 
   useEffect(() => {

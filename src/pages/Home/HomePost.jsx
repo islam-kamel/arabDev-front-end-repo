@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Scotch from './Scotch'
 import { SavedPostsContext } from '../../context/SavedPostsContext'
-import { PostsContext } from '../../context/PostsContext'
+// import { PostsContext } from '../../context/PostsContext'
+import posts from '../Home/posts-data'
 /**
  * Our React component where we display data
  * -----------------------------
@@ -9,13 +10,13 @@ import { PostsContext } from '../../context/PostsContext'
 
 function HomePost() {
   const { savedPosts, setSavedPosts } = useContext(SavedPostsContext)
-  const { posts } = useContext(PostsContext)
+  // const { posts } = useContext(PostsContext)
 
-  useEffect(() => {
-    console.log(posts)
-  }, [posts])
+  // useEffect(() => {
+  //   console.log(posts)
+  // }, [posts])
   return (
-    <div className="App pt-2">
+    <div className="pt-2">
       {/* Iterate over imported array in postData */}
       <div className="posts">
         {/* Display each data in array in a card */}
@@ -25,12 +26,12 @@ function HomePost() {
             const date = new Date(post.published_at).toLocaleDateString('en-US')
             return (
               <div
-                className=" break-words mb-7 relative cursor-pointer rounded-lg shadow-sm !px-7   py-7 bg-white bor-post"
+                className=" break-words mb-7 relative cursor-pointer rounded-lg shadow-sm !px-7   py-7 bg-white  "
                 key={post.id}
                 id={post.id}
               >
                 <div
-                  className={`absolute bg-center mb-12 top-0 left-0 bg-cover w-full h-[200px]`}
+                  className={`absolute bg-center rounded-t-[10px] mb-12 top-0 left-0 bg-cover w-full h-[200px]`}
                   style={{ backgroundImage: `url(${post?.img})` }}
                 ></div>
                 <div className={post.img ? `mt-[200px]` : null}>
@@ -51,40 +52,48 @@ function HomePost() {
                   </div>
                   <div className="d-flex flex-wrap gap-4 mt-3 items-center justify-between">
                     <div className="d-flex gap-4">
-                      <p className="flex gap-1 mb-0">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          role="img"
-                          aria-labelledby="app2pesflcmmotzd9mvcfcf0bujrwtxs"
-                          className="crayons-icon"
-                        >
-                          <title id="app2pesflcmmotzd9mvcfcf0bujrwtxs">Reactions</title>
-                          <path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path>
-                        </svg>
-                        {post.reacts}
-                        <span> reactions</span>
-                      </p>
-                      <p className="flex gap-1  mb-0">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          role="img"
-                          aria-labelledby="ami8uwsz0gc2a40w558dr4mzn2q2iatc"
-                          className="crayons-icon"
-                        >
-                          <title id="ami8uwsz0gc2a40w558dr4mzn2q2iatc">Comments</title>
-                          <path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path>
-                        </svg>
-                        {post.comments}
-                        <span>commnets</span>
-                      </p>
+                      <div className="d-flex sm:flex-wrap gap-3">
+                        <p className="flex gap-1 mb-0">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            role="img"
+                            aria-labelledby="app2pesflcmmotzd9mvcfcf0bujrwtxs"
+                            className="crayons-icon"
+                          >
+                            <title id="app2pesflcmmotzd9mvcfcf0bujrwtxs">Reactions</title>
+                            <path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path>
+                          </svg>
+                          {post.reacts}
+                          <span> reactions</span>
+                        </p>
+
+                        <p className="flex gap-1  mb-0">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            role="img"
+                            aria-labelledby="ami8uwsz0gc2a40w558dr4mzn2q2iatc"
+                            className="crayons-icon"
+                          >
+                            <title id="ami8uwsz0gc2a40w558dr4mzn2q2iatc">Comments</title>
+                            <path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path>
+                          </svg>
+                          {post.comments}
+                          <span>commnets</span>
+                        </p>
+                      </div>
                     </div>
-                    <button type="button" aria-label="Save to reading list" title="Save to reading list">
+                    <button
+                      className="flex"
+                      type="button"
+                      aria-label="Save to reading list"
+                      title="Save to reading list"
+                    >
                       {Array.isArray(savedPosts) && savedPosts.find(savedPost => savedPost.id === post.id) ? (
-                        <span className="bm-success">
+                        <span className="bm-success ">
                           <svg
                             onClick={() => {
                               setSavedPosts(pre => pre.filter(savedPost => savedPost.id !== post.id))
@@ -98,7 +107,7 @@ function HomePost() {
                           </svg>
                         </span>
                       ) : (
-                        <span className="bm-initial">
+                        <span className="bm-initial   ">
                           <svg
                             onClick={() => {
                               setSavedPosts(pre => [...pre, post])

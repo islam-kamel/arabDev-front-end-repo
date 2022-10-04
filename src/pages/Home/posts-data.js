@@ -1,6 +1,6 @@
 // Data export
 
-export default [
+const posts = [
   {
     id: 1,
     img: 'https://i.natgeofe.com/k/75ac774d-e6c7-44fa-b787-d0e20742f797/giant-panda-eating_16x9.jpg',
@@ -59,3 +59,4 @@ export default [
     comments: 15,
   },
 ]
+export default posts

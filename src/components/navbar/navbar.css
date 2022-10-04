@@ -44,3 +44,21 @@
   background-color: #babbeb !important;
   color: #1b1f4b !important;
 }
+
+.dropdown-toggle {
+  background-color: transparent !important;
+  border: none !important;
+  width: fit-content !important;
+  padding-inline: 5px !important;
+}
+.nav-link {
+  padding: 0 !important;
+}
+.dropdown-toggle::after {
+  display: none !important;
+}
+.dropdown-menu {
+  min-width: 220px !important;
+  min-height: 200px;
+  left: -160px !important;
+}
